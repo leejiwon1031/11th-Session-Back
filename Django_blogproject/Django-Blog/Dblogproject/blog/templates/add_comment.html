@@ -1,5 +1,11 @@
-<body style=" background-color: rgb(243, 255, 226);">
-{% block content %} 
+{% extends 'base.html' %} 
+
+{% block head %} 
+<title>Comment</title>
+{% endblock %} 
+
+{% block content %}
+<!--<body style=" background-color: rgb(243, 255, 226);">-->
     <h3>🗣️New Comment</h3>
     <form method="POST" class="post-form">
         {% csrf_token %} 

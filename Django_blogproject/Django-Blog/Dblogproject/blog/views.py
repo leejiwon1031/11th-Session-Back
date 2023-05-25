@@ -44,7 +44,7 @@ def create(request):
         hashtags=request.POST['hashtags']
         hashtag=hashtags.split(", ")
         for tag in hashtag:
-            new_hashtag=HashTag.object.get_or_create(hashtag=tag)
+            new_hashtag=HashTag.objects.get_or_create(hashtag=tag)
             new_blog.hashtag.add(new_hashtag[0])
             #new_hashtag.hashtag=tag
             #new_hashtag.save()

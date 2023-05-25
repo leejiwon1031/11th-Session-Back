@@ -1,6 +1,18 @@
-<body style="padding:5px; background-color: lightcyan;">
+{% extends 'base.html' %} <!--base.html 상속-->
 
-    <h1>❤️블로그 프로젝트💖</h1>
+{% load static %}
+
+<!--head 블록 부분-->
+{% block head %} 
+<link rel="stylesheet" href="{% static 'css/test.css' %}">
+<link rel="stylesheet" href="{% static 'css/test2.css' %}">
+<title>Home</title>
+{% endblock %} 
+
+<!--content 블록 부분-->
+{% block content %}
+
+    <h1 style="margin-left:10px;font-weight:800;">❤️블로그 프로젝트💖</h1>
     <a href="{% url 'new' %}" style="text-decoration:none">✏️새로운 글 만들기</a>
 
 {% for blog in blogs.all %}
@@ -12,3 +24,6 @@
 <a href="{% url 'detail' blog.id%}">...more</a>
 </div>
 {% endfor %}
+{% endblock %}
+</body>
+</html>

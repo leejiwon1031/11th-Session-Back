@@ -1,7 +1,18 @@
-<body style="padding:5px; background-color: rgb(246, 248, 220);">
+{% extends 'base.html' %} 
+
+{% block head %} 
+<title>Detail</title>
+{% endblock %} 
+
+{% block content %}
+<!--<body style="padding:5px; background-color: rgb(246, 248, 220);">-->
 <h2>😊{{blog.title}}</h2>
 {{blog.date}}
-
+<br>
+{% if blog.photo %} 
+<img src="{{ blog.photo.url }}" alt="" height="200px;">
+{% endif %}
+<br>
 <p>{{blog.body}}</p>
 <br>
 <div>
@@ -27,3 +38,4 @@
 {% empty %} 
 <p> 아직 댓글이 없어요 :( </p>
 {% endfor %}
+{% endblock %}
