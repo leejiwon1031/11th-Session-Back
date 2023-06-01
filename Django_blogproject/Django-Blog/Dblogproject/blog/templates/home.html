@@ -15,6 +15,11 @@
     <h1 style="margin-left:10px;font-weight:800;">❤️블로그 프로젝트💖</h1>
     <a href="{% url 'new' %}" style="text-decoration:none">✏️새로운 글 만들기</a>
 
+    <br>
+    {% if user.is_authenticated %} 
+        이름 : {{user.username}} 닉네임 : {{user.nickname}} 대학 : {{user.university}} 위치 : {{user.location}}
+    {% endif %}
+
 {% for blog in blogs.all %}
 <div style="margin:10px; padding:5px; border:3px solid; border-color: rgb(234, 58, 128); border-radius:10px; background-color:#e7e1e7; ">
 <h3>{{blog.title}}</h3>

@@ -43,12 +43,29 @@
             <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
+        
+
             </form>
         </div>
         </div>
     </nav>
 {% block content %} 
 {% endblock %} 
+
+{% if not user.is_authenticated %}
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'login' %}">로그인</a>
+</li>
+            
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'signup' %}">회원가입</a>
+</li>
+{% endif %} 
+{% if user.is_authenticated %} 
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'logout' %}">로그아웃</a>
+</li>
+{% endif %}
 
 </body>
 </html>
